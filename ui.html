@@ -1,0 +1,37 @@
+<h2>Sketchiness Creator</h2>
+<p>
+  <!--<label for="sketchamount">Sketchiness amount (between 0 and 10):</label> -->
+  <p>Select a specific element or a frame which contains some simple elements to make them sketchy. <br/>
+    Works on ellipse, rectangle, triangle, star, polygon and vector nodes.</p>
+  <!--<input type="range" id="sketchamount" name="sketchamount" value="0" min="0" max="10">
+  <div id="sketchamountdisplay">0</div> -->
+</p>
+<button id="cancel">Cancel</button>
+<button id="create">OK</button>
+<script>
+// var sketchInterval = 0;
+// document.getElementById('sketchamount').onmousedown = () => {
+//   sketchInterval = setInterval(goBaby,100);
+  
+// }
+// document.getElementById('sketchamount').onmouseup = () => {
+//   clearInterval(sketchInterval);
+// }
+
+// function goBaby() {
+//   console.log('GoBaby!');
+//   document.getElementById('sketchamountdisplay').innerText = document.getElementById('sketchamount').value;
+// }
+
+document.getElementById('create').onclick = () => {
+  //const range = document.getElementById('sketchamount');
+  //const count = parseInt(range.value, 10);
+  const count = 3;
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+}
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script>
